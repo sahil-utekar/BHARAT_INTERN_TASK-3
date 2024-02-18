@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Money Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Money Tracker
+      <img src="money.png" alt="">
+    </h2>
+    <form id="expenseForm" action="/addExpense" method="post">
+      <div class="form-group">
+        <input type="text" id="title" name="title" placeholder="Enter Title" required>
+      </div>
+      <div class="form-group">
+        <input type="number" id="amount" name="amount" placeholder="Enter Amount" required>
+      </div>
+      <div class="form-group">
+        <select id="type" name="type" required>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+      </div>
+      <button type="submit" class="btn">Add</button>
+    </form>
+
+    <div id="expenseList"></div>
+  </div>
+  <!-- Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Expense</h2>
+      <form id="editExpenseForm" action="/editExpense" method="post">
+        <input type="hidden" id="editExpenseId" name="id">
+        <div class="form-group">
+          <input type="text" id="editTitle" name="title" placeholder="Enter Title" required>
+        </div>
+        <div class="form-group">
+          <input type="number" id="editAmount" name="amount" placeholder="Enter Amount" required>
+        </div>
+        <div class="form-group">
+          <select id="editType" name="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Save</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
